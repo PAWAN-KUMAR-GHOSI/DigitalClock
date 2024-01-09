@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Belanosima:wght@700&family=Crimson+Text:ital,wght@1,700&family=Orbitron:wght@500&family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Clock.css">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <div class="contanier">
+        <div class="clock">
+            <h1 class="font">
+            <span id="hours">12</span>
+            <span>:</span>
+            <span id="minuts">60</span>
+            <span>:</span>
+            <span id="seconds">60</span>
+            <span id="am or pm">AM</span>
+            </h1>
+        </div>
+    </div>
+    <script>
+        function updateTime(){
+            var dateTime = new Date();
+            var hr = (dateTime.getHours() < 10) ? '0' + dateTime.getHours() : dateTime.getHours();
+            var min = (dateTime.getMinutes() < 10) ? '0' + dateTime.getMinutes() : dateTime.getMinutes(); 
+            var sec = (dateTime.getSeconds() < 10) ? '0' + dateTime.getSeconds() : dateTime.getSeconds() ;
+            var am_or_pm = document.getElementById("am or pm");
+            if( hours >= 12){
+                am_or_pm.innerHTML = "PM";
+            } else{
+                am_or_pm.innerHTML = "AM";
+            }if(hours < 12){
+                hours = hours - 12;
+            }
+            document.getElementById("hours").innerHTML = hr
+            document.getElementById("minuts").innerHTML = min
+            document.getElementById("seconds").innerHTML = sec
+        }
+
+        setInterval(updateTime,100);
+
+
+
+    </script>
+    
+</body>
+</html>
